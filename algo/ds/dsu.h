@@ -4,7 +4,9 @@
 #include <vector>
 namespace cpa::ds {
     struct disjoint_set_union {
-    public:
+        // member data
+        std::vector<int> parent, rank;
+
         disjoint_set_union(int n) : parent(n), rank(n, 0) {
             std::iota(parent.begin(), parent.end(), 0);
         }
@@ -20,9 +22,6 @@ namespace cpa::ds {
             if (rank[u] == rank[v])
                 rank[u]++;
         }
-    private:
-        std::vector<int> parent;
-        std::vector<int> rank;
     };
     typedef disjoint_set_union dsu;
 }
